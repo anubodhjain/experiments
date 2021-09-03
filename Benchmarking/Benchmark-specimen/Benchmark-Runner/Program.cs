@@ -8,7 +8,8 @@ namespace Benchmark_Runner
         static void Main(string[] args)
         {
             Console.WriteLine("Running benchmark-");
-            var summary = BenchmarkRunner.Run<GetCommonSitesBenchmark>();
+            //var summary = BenchmarkRunner.Run<GetCommonSitesBenchmark>();
+            var summary1 = BenchmarkRunner.Run<FileReadBenchmark>();
         }
     }
 }
