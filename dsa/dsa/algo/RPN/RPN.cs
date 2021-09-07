@@ -32,12 +32,14 @@ namespace algo.RPN
                 char l1=infix[i];
                 if (operators.ContainsKey(l1))
                 {
-                    //check stack size
+                    //check stack size. If open bracket found, push it without checking precedence.
                     if (operatorStack.Count == 0 || l1 == '(')
                     {
                         operatorStack.Push(l1);
                         continue;
                     }
+
+                    //If close bracket found, pop everything untill open bracket is found.
                     else if (l1 == ')')
                     {
                         while(operatorStack.Peek() != '(')
@@ -48,7 +50,7 @@ namespace algo.RPN
                     }
                     else
                     {
-                        //check precedence.
+                        //check precedence. If higher, just add it to stack.
                         char topOfStack = operatorStack.Peek();
                         if(operators[l1] > operators[topOfStack])
                         {
@@ -69,6 +71,7 @@ namespace algo.RPN
                     postfix += l1;
             }
 
+            //empty stack and write all to expression.
             while (operatorStack.Count != 0)
             {
                 postfix += operatorStack.Pop();
