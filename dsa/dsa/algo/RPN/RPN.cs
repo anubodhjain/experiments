@@ -78,5 +78,50 @@ namespace algo.RPN
             }
             return postfix;
         }
+        
+        public int SolveRPN(string[] tokens)
+        {
+            string[] operators = new string[]{"+","-","*","/"};
+        Stack<int> valStack = new Stack<int>();
+
+            for (int i = 0; i < tokens.Length; i++)
+            {
+                if (Array.IndexOf(operators, tokens[i]) == -1)
+                {
+                    valStack.Push(getInt(tokens[i]));
+                }
+                else
+                {
+                    var op = tokens[i];
+                    int v1 = valStack.Pop();
+                    int v2 = valStack.Pop();
+                    var val = Eval(op, v2, v1);
+                    valStack.Push(val);
+                }
+            }
+            return Convert.ToInt32(valStack.Pop());
+        }
+
+        private int Eval(string op, int a, int b)
+        {
+            switch (op)
+            {
+                case "+":
+                    return a+b;
+                case "*":
+                    return a * b;
+                case "-":
+                    return a - b;
+                case "/":
+                    return a / b;
+                default:
+                    return 0;
+            }
+        }
+
+        private int getInt(string s)
+        {
+            return Convert.ToInt32(s);
+        }
     }
 }
