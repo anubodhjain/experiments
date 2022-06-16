@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "algo", "algo\algo.csproj", "{43739D2A-0EEE-4E09-A427-B15C78AEF8D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threading", "Threading\Threading.csproj", "{002B3010-6F32-4CF9-B71B-F88F691EF146}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Threading", "Threading\Threading.csproj", "{002B3010-6F32-4CF9-B71B-F88F691EF146}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -9,10 +9,25 @@ namespace algo
         {
             Console.WriteLine("Hello World!");
             //TestLinkedList();
-            TestBST();
-            
+            //TestBST();
+            InserteRecordsAndShowCount();
 
 
+        }
+
+        static void InserteRecordsAndShowCount()
+        {
+            Random r = new Random();
+            DS.BST bst = new DS.BST();
+            int i = 0;
+            int till = 10000;
+            while (i++ < till)
+            {
+               int val= r.Next(0, 11);
+                bst.Insert(val);
+            }
+
+            bst.InOrderTraversal();
         }
 
         static void TestBST()
@@ -31,7 +46,38 @@ namespace algo
             Assert.IsTrue(bst.KeyExists(1));
 
             bst.InOrderTraversal();
+            Console.WriteLine("--");
+            bst.PreOrderTravel();
+            Console.WriteLine("--");
+            bst.PostOrderTraversal();
+            Assert.AreEqual(1, bst.FindMin());
+            Assert.AreEqual(10, bst.FindMax());
+
+            bst.InOrderTraversal();
+            bst.RemoveNode(5);
+            Console.WriteLine("--");
+            bst.InOrderTraversal();
+            bst.RemoveNode(1);
+            Console.WriteLine("--");
+            bst.InOrderTraversal();
+            bst.RemoveNode(6);
+            Console.WriteLine("--");
+            bst.InOrderTraversal();
+            bst.RemoveNode(8);
+            Console.WriteLine("--");
+            bst.InOrderTraversal();
+            bst.RemoveNode(5);
+            Console.WriteLine("--");
+            bst.InOrderTraversal();
+            bst.RemoveNode(10);
+            Console.WriteLine("--");
+            bst.InOrderTraversal();
+            bst.RemoveNode(8);
+            Console.WriteLine("--");
+            bst.InOrderTraversal();
+
         }
+
         static void TestLinkedList()
         {
             DS.LinkedList list = new DS.LinkedList();

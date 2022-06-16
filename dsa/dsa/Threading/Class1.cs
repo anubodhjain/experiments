@@ -19,7 +19,9 @@ class ProducerConsumerQueue : IDisposable
     public void EnqueueTask(string task)
     {
         Thread.Sleep(1900);
-        lock (_locker) _tasks.Enqueue(task);
+        lock (_locker) { 
+            _tasks.Enqueue(task);
+        }
         _wh.Set();
     }
 
